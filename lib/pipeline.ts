@@ -25,12 +25,13 @@ export class PipelineDemoStack extends cdk.Stack {
         trigger: codepipeline_actions.GitHubTrigger.POLL,
         owner: "mjzone",
         repo: "cdkdemo",
-        branch: "main"
+        branch: "master"
       }),
 
       synthAction: SimpleSynthAction.standardNpmSynth({
         sourceArtifact,
         cloudAssemblyArtifact,  
+        installCommand: "npm install -g aws-cdk && npm install",
         synthCommand: "cdk synth",
       }),
     });
