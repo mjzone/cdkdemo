@@ -35,7 +35,7 @@ export class CloudfrontDemoStack extends cdk.Stack {
 
     // Trigger deployment
     new BucketDeployment(this, "websiteDeployment", {
-      sources: [Source.asset("../app/build")],
+      sources: [Source.asset("../cdkdemo2/frontend/app/build")],
       destinationBucket: websiteBucket as any
     });
 

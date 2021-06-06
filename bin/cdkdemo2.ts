@@ -5,9 +5,8 @@ import { PipelineDemoStack } from "../lib/pipeline";
 
 const app = new cdk.App();
 new PipelineDemoStack(app, "PipelineDemoStack", {
-  stage: "prod",
-  //   env: {
-  //     account: "111111111111",
-  //     region: "eu-west-1",
-  //   },
+    env: {
+      account: "885121665536",
+      region: "us-east-2",
+    },
 });
