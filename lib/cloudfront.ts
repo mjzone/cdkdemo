@@ -21,30 +21,30 @@ interface CustomStackProps extends cdk.StackProps {
 export class CloudfrontDemoStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props: CustomStackProps) {
     super(scope, id, props);
-    const loadBalancerDomain = cdk.Fn.importValue("loadBalancerUrl");
+    const loadBalancerDomain = cdk.Fn.importValue("loadBalancerUrl1");
     const config = this.node.tryGetContext("stages")[props.stage];
 
     // SSL certificate
-    const certificateArn = acm.Certificate.fromCertificateArn(this, "tlsCertificate", config.certificateArn);
+    const certificateArn = acm.Certificate.fromCertificateArn(this, "tlsCertificate1", config.certificateArn);
 
     // Web hosting bucket
-    let websiteBucket = new Bucket(this, "websiteBucket", {
+    let websiteBucket = new Bucket(this, "websiteBucket1", {
       versioned: false,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
 
     // Trigger deployment
-    new BucketDeployment(this, "websiteDeployment", {
+    new BucketDeployment(this, "websiteDeployment1", {
       sources: [Source.asset("../cdkdemo2/frontend/app/build")],
       destinationBucket: websiteBucket as any
     });
 
     // OAI
-    const originAccessIdentity = new OriginAccessIdentity(this, "cloudfrontOAI", {
+    const originAccessIdentity = new OriginAccessIdentity(this, "cloudfrontOAI1", {
       comment: "OAI for web application cloudfront distribution",
     });
 
-    let cloudFrontDist = new Distribution(this, "cloudfrontDist", {
+    let cloudFrontDist = new Distribution(this, "cloudfrontDist1", {
       defaultRootObject: "index.html",
       domainNames: ["enlearacademy.tk"],
       certificate: certificateArn,
@@ -68,9 +68,9 @@ export class CloudfrontDemoStack extends cdk.Stack {
       allowedMethods: AllowedMethods.ALLOW_ALL,
     });
 
-    new cdk.CfnOutput(this, "cloudfrontDomainUrl", {
+    new cdk.CfnOutput(this, "cloudfrontDomainUrl1", {
       value: cloudFrontDist.distributionDomainName,
-      exportName: "cloudfrontDomainUrl",
+      exportName: "cloudfrontDomainUrl1",
     });
   }
 }

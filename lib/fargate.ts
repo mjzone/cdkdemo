@@ -8,18 +8,18 @@ export class FargateDemoStack extends cdk.Stack {
     super(scope, id, props);
     
     // VPC
-    const vpc = new Vpc(this, "youtubeVPC", {
+    const vpc = new Vpc(this, "youtubeVPC1", {
       maxAzs: 2,
       natGateways: 1,
     });
 
     // Fargate cluster
-    const cluster = new ecs.Cluster(this, "youtubeCluster", {
+    const cluster = new ecs.Cluster(this, "youtubeCluster1", {
       vpc: vpc,
     });
 
     // Fargate service
-    const backendService = new ecs_patterns.ApplicationLoadBalancedFargateService(this, "backendService", {
+    const backendService = new ecs_patterns.ApplicationLoadBalancedFargateService(this, "backendService1", {
       cluster: cluster,
       memoryLimitMiB: 1024,
       cpu: 512,
@@ -36,9 +36,9 @@ export class FargateDemoStack extends cdk.Stack {
     backendService.targetGroup.configureHealthCheck({ path: "/health" });
 
     // Load balancer url
-    new cdk.CfnOutput(this, "loadBalancerUrl", {
+    new cdk.CfnOutput(this, "loadBalancerUrl1", {
       value: backendService.loadBalancer.loadBalancerDnsName,
-      exportName: "loadBalancerUrl",
+      exportName: "loadBalancerUrl1",
     });
   }
 }
