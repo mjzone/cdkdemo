@@ -8,6 +8,7 @@ import {
   AllowedMethods,
   ViewerProtocolPolicy,
   OriginProtocolPolicy,
+  Distribution,
 } from "@aws-cdk/aws-cloudfront";
 
 interface CustomStackProps extends cdk.StackProps {
