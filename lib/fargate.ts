@@ -15,7 +15,7 @@ export class FargateDemoStack extends cdk.Stack {
 
     // Fargate cluster
     const cluster = new ecs.Cluster(this, "youtubeCluster1", {
-      vpc: vpc,
+      vpc: vpc as any,
     });
 
     // Fargate service

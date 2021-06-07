@@ -27,9 +27,9 @@ export class PipelineDemoStack extends cdk.Stack {
       synthAction: SimpleSynthAction.standardNpmSynth({
         sourceArtifact,
         cloudAssemblyArtifact,
-        installCommand: "npm install -g aws-cdk && npm install && cd frontend/app && npm install && npm run build",
-        buildCommand: "npm run build",
-        synthCommand: "npx cdk synth",
+        installCommand: "npm install -g aws-cdk",
+        buildCommand: "npm run deploy",
+        synthCommand: "cdk synth",
       }),
     });
 

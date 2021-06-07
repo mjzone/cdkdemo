@@ -5,6 +5,8 @@
     "cdkdemo2": "bin/cdkdemo2.js"
   },
   "scripts": {
+    "predeploy": "cd frontend && npm install && npm run build",
+    "deploy": "tsc",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
