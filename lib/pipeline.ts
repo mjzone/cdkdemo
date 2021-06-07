@@ -29,7 +29,7 @@ export class PipelineDemoStack extends cdk.Stack {
         cloudAssemblyArtifact,
         installCommand: "npm install -g aws-cdk",
         buildCommand: "npm run deploy",
-        synthCommand: "npm run synth",
+        // synthCommand: "npm run synth",
       }),
     });
 
