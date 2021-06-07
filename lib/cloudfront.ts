@@ -5,10 +5,6 @@ import * as origins from "@aws-cdk/aws-cloudfront-origins";
 import * as acm from "@aws-cdk/aws-certificatemanager";
 import {
   OriginAccessIdentity,
-  OriginRequestPolicy,
-  OriginRequestCookieBehavior,
-  OriginRequestQueryStringBehavior,
-  Distribution,
   AllowedMethods,
   ViewerProtocolPolicy,
   OriginProtocolPolicy,

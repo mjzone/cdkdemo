@@ -13,7 +13,7 @@ export class MyApplication extends Stage {
   constructor(scope: Construct, id: string, props?: CustomStackProps) {
     super(scope, id, props);
 
-    new FargateDemoStack(this, "FarageDemoStack");
-    new CloudfrontDemoStack(this, "CloudfrontDemoStack", { stage: props?.stage as string });
+    new FargateDemoStack(this, "FarageDemoStack1");
+    new CloudfrontDemoStack(this, "CloudfrontDemoStack1", { stage: props?.stage as string });
   }
 }
