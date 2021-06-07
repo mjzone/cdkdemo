@@ -25,7 +25,7 @@ export class FargateDemoStack extends cdk.Stack {
       cpu: 512,
       desiredCount: 2,
       taskImageOptions: {
-        image: ecs.ContainerImage.fromAsset("../cdkdemo2/backend/"),
+        image: ecs.ContainerImage.fromAsset("../backend/"),
         environment: {
           myVar: "variable01",
         },
